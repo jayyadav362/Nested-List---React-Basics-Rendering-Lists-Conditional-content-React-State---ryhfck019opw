@@ -156,7 +156,7 @@ const states = [
 
 function App() {
   return(
-    <div className="accordion accordion-flush" id="accordionFlushExample">
+    <div className="accordion accordion-flush" id="main">
       {states.map((data,idx)=>{
         return(
           <div key={idx} id={`state${idx}`} className="accordion-item">
@@ -165,7 +165,7 @@ function App() {
                 {data.name}
               </button>
             </h2>
-            <div id={`flush-collapseOne${idx}`} className="accordion-collapse collapse" aria-labelledby={`flush-headingOne${idx}`} data-bs-parent="#accordionFlushExample">
+            <div id={`flush-collapseOne${idx}`} className="accordion-collapse collapse" aria-labelledby={`flush-headingOne${idx}`} data-bs-parent="#main">
               <div className="accordion-body">
                 <div className="accordion accordion-flush" id={`accordian${idx}`}>  
                   {data.cities.map((c,cidx)=>{
