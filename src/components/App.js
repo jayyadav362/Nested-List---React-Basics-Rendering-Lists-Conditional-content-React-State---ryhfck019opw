@@ -159,7 +159,7 @@ function App() {
     <div className="accordion accordion-flush" id="main">
       {states.map((data,idx)=>{
         return(
-          <div key={idx} id={`state${idx}`} className="accordion-item">
+          <div key={idx} id={`state${idx+1}`} className="accordion-item">
             <h2 className="accordion-header" id={`flush-headingOne${idx}`}>
               <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target={`#flush-collapseOne${idx}`} aria-expanded="false" aria-controls="flush-collapseOne">
                 {data.name}
@@ -170,7 +170,7 @@ function App() {
                 <div className="accordion accordion-flush" id={`accordian${idx}`}>  
                   {data.cities.map((c,cidx)=>{
                     return(
-                      <div className="accordion-item" key={cidx} id={`city${cidx}`}>
+                      <div className="accordion-item" key={cidx} id={`city${cidx+1}`}>
                       <h2 className="accordion-header" id={`flush-headingTwo${cidx}`}>
                         <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target={`#flush-collapseTwo${cidx}`} aria-expanded="false" aria-controls={`flush-collapseTwo${cidx}`}>
                         {c.name}
@@ -181,7 +181,7 @@ function App() {
                         <ul className="list-group">
                           {c.towns.map((t,tidx)=>{
                             return(
-                              <li key={tidx} id={`town${tidx}`} className="list-group-item">
+                              <li key={tidx} id={`town${tidx+1}`} className="list-group-item">
                                 {t.name}
                               </li>
                             )
