@@ -1,5 +1,6 @@
-import React, { Component, useState } from "react";
+import React from "react";
 import "./../styles/App.css";
+import State from "./State";
 
 // Do not alter the states const and values inside it.
 const states = [
@@ -155,50 +156,20 @@ const states = [
 ];
 
 function App() {
-  return(
-    <div className="accordion accordion-flush" id="main">
-      {states.map((data,idx)=>{
-        return(
-          <div key={idx} id={`state${idx+1}`} className="accordion-item">
-            <h2 className="accordion-header" id={`flush-headingOne${idx}`}>
-              <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target={`#flush-collapseOne${idx}`} aria-expanded="false" aria-controls="flush-collapseOne">
-                {data.name}
-              </button>
-            </h2>
-            <div id={`flush-collapseOne${idx}`} className="accordion-collapse collapse" aria-labelledby={`flush-headingOne${idx}`} data-bs-parent="#main">
-              <div className="accordion-body">
-                <div className="accordion accordion-flush" id={`accordian${idx}`}>  
-                  {data.cities.map((c,cidx)=>{
-                    return(
-                      <div className="accordion-item" key={cidx} id={`city${cidx+1}`}>
-                      <h2 className="accordion-header" id={`flush-headingTwo${cidx}`}>
-                        <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target={`#flush-collapseTwo${cidx}`} aria-expanded="false" aria-controls={`flush-collapseTwo${cidx}`}>
-                        {c.name}
-                        </button>
-                      </h2>
-                      <div id={`flush-collapseTwo${cidx}`} className="accordion-collapse collapse" aria-labelledby={`flush-headingTwo${cidx}`} data-bs-parent={`#accordian${idx}`}>
-                        <div className="accordion-body">
-                        <ul className="list-group">
-                          {c.towns.map((t,tidx)=>{
-                            return(
-                              <li key={tidx} id={`town${tidx+1}`} className="list-group-item">
-                                {t.name}
-                              </li>
-                            )
-                          })}
-                          </ul>
-                        </div>
-                      </div>
-                    </div>  
-                    )
-                  })}
-                </div>
-              </div>
-            </div>
-          </div>
-        )
-      })}
-  </div>
-  )}
+  return (
+    <div id="main">
+      <ul>
+        {states.map((item,sindex) => (
+          <State
+            key={sindex}
+            sindex={sindex}
+            name={item.name}
+            cities={item.cities}
+          />
+        ))}
+      </ul>
+    </div>
+  );
+}
 
 export default App;
